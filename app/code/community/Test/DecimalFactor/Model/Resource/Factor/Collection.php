@@ -22,12 +22,12 @@ class Test_DecimalFactor_Model_Resource_Factor_Collection extends Mage_Core_Mode
      */
     public function getAllItems()
     {
-        $select = $this->getSelect()->from([$this->getMainTable()],[
+        $select = $this->getConnection()->select()->from(['main_table' => $this->getMainTable()], [
             'entity_id',
             'total',
             'order_id'
         ]);
-        $select->group('main_table.order_id');
+        $select->group('order_id');
 
         $connection = $this->getResource()->getReadConnection();
         $itemsData = $connection->fetchAll($select);
@@ -40,11 +40,11 @@ class Test_DecimalFactor_Model_Resource_Factor_Collection extends Mage_Core_Mode
      */
     public function getAllOrderIds()
     {
-        $select = $this->getSelect()->from([$this->getMainTable()]);
+        $select = $this->getConnection()->select()->from($this->getMainTable());
 
         $select->reset(Zend_Db_Select::COLUMNS);
-        $select->columns('main_table.order_id');
-        $select->group('main_table.order_id');
+        $select->columns('order_id');
+        $select->group('order_id');
         $connection = $this->getResource()->getReadConnection();
 
         $itemsData = $connection->fetchCol($select);
