@@ -56,7 +56,7 @@ Mage::getModel('test_decimalfactor/factor')
 ->getCollection()
 ->getAllItems();
 ```
-Get All Items (only order_id row):
+Get All Items (only order_id):
 ```
 Mage::getModel('test_decimalfactor/factor')
 ->getCollection()
