@@ -57,7 +57,7 @@ class Test_DecimalFactor_Model_Resource_Factor extends Mage_Core_Model_Resource_
         $adapter = $this->getReadConnection();
         $select  = $adapter->select()
             ->from(
-                [$this->getTable('sales_order')],
+                [$this->getTable('sales/order')],
                 [
                     'entity_id',
                     'store_id',
